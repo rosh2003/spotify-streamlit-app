@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
 from PIL import Image
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
@@ -9,19 +9,21 @@ import matplotlib.pyplot as plt
 # Author: Roshan Naik
 
 # Spotify API credentials
+# Load Spotify API credentials
 load_dotenv('cred.env')  # Load variables from .env
 client_id = os.getenv('SPOTIFY_CLIENT_ID')
 client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
-redirect_uri = 'https://spotify-app-app-zhrnowrmawtiapdddth9dl.streamlit.app'  
 
-
+# Set up Spotify Client Credentials
+auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+sp = spotipy.Spotify(auth_manager=auth_manager)
 # Set up Spotify API authorization with the required scopes
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id=client_id,
-    client_secret=client_secret,
-    redirect_uri=redirect_uri,
-    scope="user-library-read user-top-read"
-))
+# sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
+#     client_id=client_id,
+#     client_secret=client_secret,
+#     redirect_uri=redirect_uri,
+#     scope="user-library-read user-top-read"
+# ))
 
 # Streamlit app
 
