@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 load_dotenv('cred.env')  # Load variables from .env
 client_id = os.getenv('SPOTIFY_CLIENT_ID')
 client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
-redirect_uri = 'https://spotify-app-app-zhrnowrmawtiapdddth9dl.streamlit.app'  
+redirect_uri = 'http://localhost:8888/callback'  
 
 
 # Set up Spotify API authorization with the required scopes
