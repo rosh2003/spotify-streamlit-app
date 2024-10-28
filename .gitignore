@@ -1,0 +1,7 @@
+cred.env
+.cache
+artists.py
+liked_songs.py
+main.py
+my_artists.py
+testing_st.py
